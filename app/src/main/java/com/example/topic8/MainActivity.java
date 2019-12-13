@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,17 +28,28 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView textView;
     private static final String base_url = "http://dummy.restapiexample.com/api/v1/";
-
+private Button btnSearch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textview);
+        btnSearch = findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+               finish();
+            }
+        });
+
 
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(base_url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
 //Interface instance
 
         final EmployeeApi employeeApi = retrofit.create(EmployeeApi.class);

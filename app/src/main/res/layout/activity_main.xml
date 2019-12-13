@@ -8,11 +8,15 @@
     tools:context=".MainActivity">
 
 
-    <!--<TextView-->
-    <!--    android:id="@+id/textview"-->
-    <!--    class="androidx.appcompat.app.AlertController$RecycleListView"-->
-    <!--    android:layout_width="wrap_content"-->
-    <!--    android:layout_height="wrap_content" />-->
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/textview"
